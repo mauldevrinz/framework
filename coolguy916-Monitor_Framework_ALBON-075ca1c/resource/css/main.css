@@ -231,6 +231,7 @@ body {
     padding: 24px;
     height: 400px;
     min-width: 0;
+    margin-bottom: 30px;
 }
 
 .chart-container h3 {
@@ -471,3 +472,128 @@ body {
                 font-size: 1.25rem;
             }
         }
+
+        :root {
+            --bg-primary: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #1e40af 100%);
+            --bg-secondary: #1e293b;
+            --card-bg: rgba(30, 41, 59, 0.8);
+            --sidebar-bg: rgba(15, 23, 42, 0.95);
+            --accent-blue: #3b82f6;
+            --accent-orange: #f97316;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --hover-bg: rgba(255, 255, 255, 0.05);
+            --icon-bg: #3b82f6;
+        }
+
+        [data-theme="light"] {
+            --bg-primary: linear-gradient(135deg, #ffffff 0%, #f97316 50%, #fed7aa 100%);
+            --bg-secondary: #ffffff;
+            --card-bg: rgba(255, 255, 255, 0.9);
+            --sidebar-bg: rgba(255, 255, 255, 0.95);
+            --accent-blue: #3b82f6;
+            --accent-orange: #f97316;
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-muted: #64748b;
+            --border-color: rgba(0, 0, 0, 0.1);
+            --hover-bg: rgba(0, 0, 0, 0.05);
+            --icon-bg: #f97316;
+        }
+
+        .table-container {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 2px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 32px;
+        }
+
+        .table-header {
+            padding: 20px 24px;
+            border-bottom: 2px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .table-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .filter-dropdown {
+            background: var(--hover-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+            padding: 8px 16px;
+            font-weight: 500;
+            cursor: pointer;
+            min-width: 180px;
+        }
+
+        .filter-dropdown:hover {
+            border-color: var(--accent-blue);
+        }
+
+        .dropdown-menu {
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            margin-top: 8px;
+            overflow: hidden;
+        }
+
+        .dropdown-item {
+            color: var(--text-primary);
+            padding: 10px 16px;
+            font-size: 14px;
+        }
+
+        .dropdown-item:hover {
+            background: var(--hover-bg);
+            color: var(--text-primary);
+        }
+
+        .dropdown-item.active {
+            background: var(--accent-blue);
+            color: white;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 16px 24px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .data-table th {
+            background: var(--hover-bg);
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 14px;
+        }
+
+        .data-table td {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .data-table tr:hover {
+            background: var(--hover-bg);
+        }
+
+        .status-excellent { color: #10b981; }
+        .status-good { color: #10b981; }
+        .status-average { color: #f59e0b; }
+        .status-poor { color: #ef4444; }
