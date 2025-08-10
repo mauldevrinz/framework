@@ -34,7 +34,7 @@
                 <div class="nav-section-title">Main Menu</div>
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a href="main.html" class="nav-link active text-light">
+                        <a href="Overview.html" class="nav-link active text-light">
                             <i class="fas fa-tachometer-alt me-2"></i>
                             Overview
                         </a>
@@ -97,16 +97,11 @@
                             { title: 'Finance Analytics', content: 'Financial reports and analytics', url: 'FinanceAnalytics.html' },
                             { title: 'Articles', content: 'Knowledge base and article section', url: 'ArticleSection.html' },
                             { title: 'Team Profile', content: 'Team member profiles and information', url: 'TeamProfile.html' },
-                            { title: 'Performance Metrics', content: 'System performance charts and metrics', url: '#lineChart1' },
-                            { title: 'System Usage', content: 'System usage statistics and monitoring', url: '#lineChart2' },
-                            { title: 'Cache Performance', content: 'Cache hit and miss rates', url: '#barChart1' },
-                            { title: 'Resource Usage', content: 'Resource usage statistics', url: '#barChart2' },
-                            { title: 'Daily Visits', content: 'Daily visitor distribution', url: '#pieChart1' },
-                            { title: 'Weekly Traffic', content: 'Weekly traffic distribution', url: '#pieChart2' },
-                            { title: 'Browser Performance', content: 'Performance across browsers', url: '#pentagonalChart1' },
-                            { title: 'Browser Metrics', content: 'Browser performance metrics', url: '#pentagonalChart2' },
-                            { title: 'System Health', content: 'Overall system health score', url: '#gaugeChart1' },
-                            { title: 'Performance Score', content: 'System performance score', url: '#gaugeChart2' }
+                            { title: 'Performance Metrics', content: 'System performance charts and metrics', url: '#lineChart' },
+                            { title: 'Cache Performance', content: 'Cache hit and miss rates', url: '#barChart' },
+                            { title: 'Daily Visits', content: 'Daily visitor distribution', url: '#pieChart' },
+                            { title: 'Browser Performance', content: 'Performance across browsers', url: '#pentagonalChart' },
+                            { title: 'System Health', content: 'Overall system health score', url: '#gaugeChart' }
                         ];
                         
                         const filteredResults = searchableContent.filter(item => 
@@ -155,56 +150,51 @@
         </div>
 
         <div class="content p-4">
+            <!-- First row: Report Summary and System Health Gauge -->
             <div class="row mb-4">
                 <div class="col-lg-8 col-md-12 mb-4">
-                    <div class="report-summary">
+                    <div class="report-summary h-100 position-relative">
                         <h3>Report Summary</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
                         <a href="Report.html" class="btn btn-generate-report mt-3">Generate Report</a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12 mb-4">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
-                            <div class="numeric-display" id="stat1"></div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
-                            <div class="numeric-display" id="stat2"></div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
-                            <div class="numeric-display" id="stat3"></div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
-                            <div class="numeric-display" id="stat4"></div>
-                        </div>
+                    <div class="chart-container">
+                        <h3>System Health</h3>
+                        <canvas id="gaugeChart"></canvas>
                     </div>
                 </div>
             </div>
+
+            <!-- Second row: Numeric Displays -->
+            <div class="row mb-4">
+                <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+                    <div class="numeric-display" id="stat1"></div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+                    <div class="numeric-display" id="stat2"></div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+                    <div class="numeric-display" id="stat3"></div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+                    <div class="numeric-display" id="stat4"></div>
+                </div>
+            </div>
+
+            <!-- Charts -->
             <div class="row mb-4">
                 <div class="col-lg-6 col-md-12 mb-4">
                     <div class="chart-container">
                         <h3>Cache Performance</h3>
-                        <canvas id="barChart1"></canvas>
+                        <canvas id="barChart"></canvas>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-12 mb-4">
-                    <div class="chart-container">
-                        <h3>Resource Usage</h3>
-                        <canvas id="barChart2"></canvas>
-                    </div>
-                </div>
-            </div>
-            <div class="row mb-4">
                 <div class="col-lg-6 col-md-12 mb-4">
                     <div class="chart-container">
                         <h3>Performance Metrics</h3>
-                        <canvas id="lineChart1"></canvas>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-12 mb-4">
-                    <div class="chart-container">
-                        <h3>System Usage</h3>
-                        <canvas id="lineChart2"></canvas>
+                        <canvas id="lineChart"></canvas>
                     </div>
                 </div>
             </div>
@@ -212,41 +202,13 @@
                 <div class="col-lg-6 col-md-12 mb-4">
                     <div class="chart-container">
                         <h3>Daily Visits</h3>
-                        <canvas id="pieChart1"></canvas>
+                        <canvas id="pieChart"></canvas>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-12 mb-4">
-                    <div class="chart-container">
-                        <h3>Weekly Traffic</h3>
-                        <canvas id="pieChart2"></canvas>
-                    </div>
-                </div>
-            </div>
-            <div class="row mb-4">
                 <div class="col-lg-6 col-md-12 mb-4">
                     <div class="chart-container">
                         <h3>Browser Performance</h3>
-                        <canvas id="pentagonalChart1"></canvas>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-12 mb-4">
-                    <div class="chart-container">
-                        <h3>Browser Metrics</h3>
-                        <canvas id="pentagonalChart2"></canvas>
-                    </div>
-                </div>
-            </div>
-            <div class="row mb-4">
-                <div class="col-lg-6 col-md-12 mb-4">
-                    <div class="chart-container">
-                        <h3>System Health</h3>
-                        <canvas id="gaugeChart1"></canvas>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-12 mb-4">
-                    <div class="chart-container">
-                        <h3>Performance Score</h3>
-                        <canvas id="gaugeChart2"></canvas>
+                        <canvas id="pentagonalChart"></canvas>
                     </div>
                 </div>
             </div>
@@ -285,16 +247,11 @@
             updateNumericDisplay('stat2', 120, 'Dolor Sit', 'fas fa-dollar-sign');
             updateNumericDisplay('stat3', 95, 'Amet Consectetur', 'fas fa-smile', true);
             updateNumericDisplay('stat4', 45, 'Adipiscing Elit', 'fas fa-users');
-            initBarChart('barChart1');
-            initBarChart('barChart2');
-            initLineChart('lineChart1');
-            initLineChart('lineChart2');
-            initPieChart('pieChart1');
-            initPieChart('pieChart2');
-            initPentagonalChart('pentagonalChart1');
-            initPentagonalChart('pentagonalChart2');
-            initGaugeChart('gaugeChart1');
-            initGaugeChart('gaugeChart2');
+            initBarChart('barChart');
+            initLineChart('lineChart');
+            initPieChart('pieChart');
+            initPentagonalChart('pentagonalChart');
+            initGaugeChart('gaugeChart');
         });
 
         window.addEventListener('resize', () => {
